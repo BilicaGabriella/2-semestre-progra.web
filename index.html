@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Consulta CEP</title>
+</head>
+<body>
+    <header>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACQCAMAAAB3YPNYAAAA3lBMVEX///81mDAqJSLJDA8AAAAxlyxbqVcrlSUnIh+wr64hkhrz8/I1MS4kHhtMo0dnrGQXDwm52LfG4MURBwBXVFMOAAAgGhXv9e8ZkBDAvr5ys2+XxpSz1bL19fW+2L1GQkB/fXzIAADKyck8ODadm5vc7Nu2tbTk4+OnpqUcFRBiX16NjIrp6emLiYjT0tJ1c3JgXVtBPTr87+/01dXPMjTkl5jVUlTst7inz6bn8uZsaWdLSEZ3dXP22dnSQ0ToqqvZa2zfhYaEu4LXYGLxyMjhiYrZaWvtu7vRNDdvsmxGq33XAAANnUlEQVR4nO2d8UObuhbHkeGVlsZlUrDVy9ppbYvFavXublbvnXP3vvf2//9DD3ISSAKhlY6V1Xx/0cIhDZ+GkHNyAoah9dN0e3f35dPdX7fbrscu6vbj328+EL35+0uw7drsmG6fEq5U8b9fxSZ88Xyi0PfTe2Z0pLI5OTk9/uln1CR9zNhSwm++cLuPegclonw/q432279t5bQaoj8luATwU7b/cH9PrYNnYnN8UGKz1363nTNrgG7/KKAb8/2WWpSS24eWedwrMzo43dbZbV1FbVfkq/FW15OCbsz3IzXReCvrHyXdmO9fYKPxVlZxxyt2DxpvVX0qoRvzvSNGGm9Vqe5rFO8TMdJ4K+q2lG7Ml1hpvBVV3jew3kHjraiPq/AS31jjrahvq/B+Taw03ooqv7OxoZnGW1Eab61aifcpsdJ4K0odcKB4/02sNN6K+rIK76fESuOtqLtVeElQR+OtqFVe2xtipfFW1dfymANEfDXeqvqrHC9MGGu8lfWfsnjvv2Cj8VZWSe/74Q9qo/FW13/Vc2131ETj3UCqqBmMeRNpvJuomO+HLE9H491In+QcqCTP7J9s/15pls53YnPcLsPb/rylU2uEbv8UAX/48MQnSf7e21erdwFGz221zcHe687hM/759oHmSCZ/n+7Eve9+O1Tp7REzOlXaHJ7cy9/36nT75emPBO3/vn7S6b1aWlpaWr+y7t+rdJSNpo6URhdbrPovoM+9tlI9mrJ/vKc26r3qZROrdF/mbO0fQPs9KfOKX7dDtkLvSn3ZHvgMB2VO8b5uvmqV421TvGU2Gm+JNN5apfHWKo23Vmm8tUrjrVUab63SeGuVxlurNN5apfHWKo23Vmm8tUrjrVUab63SeGuVxlurNN5apfHWKo23Vmm8tUrjrVUab63SeGvVijQSyCDTeKvqvl2SgbO/B0bPZb9BTydBlej9vjqF75ClP75V27Sft1r9xuv4QqnM6F5poxelaGlpaWlpZXKI6IfoDDQXTPKbov5odDWankWBUIossjfgvqHETKiH8YIDM/toEtdzEuVWXH5+q9L3dER7caI0ek6HDu++K40UrwWJOolQHz5NLY/ImvA2yUark33ud7GHwzDEnru4Pku2jFGnQOZjsm9oJv93k39bdqHZMN41Cfl6ELVIoYOEVr+wfCiUnsf0poNJRfH5ciwQfqteaX3QOwGbo95BiRHle1pi1D4s5OuEdiyP4cUmkX/D2yDbNNGAfQqWFjKZbN/rxIDHnl2gcEnwJt8Ah7fcQjOC1+LrYaTWqEPwFpbvP6R1Gro4qSXUCbnhKCvmqPQxDBRd+WtB4DdY8VqQ34vwRn5SI1fCa1r8eYp4u9gUZMXdxtg1C+QD3uQbbEKihQvNAC9fDyO1ts8J3sLyEWu9czMU99juIr3+flhIp8rjMhR4ba4vEPFesTO1obWgBNx28c5xejnZrAkjn/FtIl4Tz4rxRhacBo4tQ8+3TTxN8FouET08hE+WjHdabHa9Ei8rn1L26YEDegpA147rE7dbTH/20GkwXtvP7m48XrCw0XTixDfqoe/h5CwmfdCY7A1H9ONcwsvM+mA248zK8UbsQMLXf6SfyG3VWIaU53AexZWaLjB37TQQL+JrJ+G9JvZ4THcF/RlfWuAle70zfhuHNxWw5M3K8YoH4hG/ae7BpdCN2JYr2EKr0TS8CBBa6dnzeC8T9tl9TpJjrYU3yLOsjhdqi/gvGIZc19w0vN58IDLM470pKsrYDl64GYT8SD3okP7XipqI1z2bw7lOC/A+Elh2VFTWVvCekZ7AvxbqMSKdHLnrNg9v31gSJCjK44UhGDpvNQUvkBQOjEvD2e2jaXjjHx2qFz7m8QZ0YOYN+gWlbQEvdL1C3xCL9A5Q5wbiNWaErzXP4TVawNdE1uAsV9oW8HaTm4FtSnGcB7KVONRNxBsQ94fee0WneAjDnniT151LpW0BLwUpVYTr3ZqI1xgTiO44j9cYWqnn6Q23jvfcLsL72HC89KJDQR6v0TIxA4w7Qqf38/EGvyhecIbwVQFewxmFLo2iIJvnu4XWu/g18RqPxPXxJgV4Y40HFLDPg2tM3wvXnt1gvA6M1y9hlJP3g/sd4MuHhn8o3tFaeG9Q2k45DTLoDcVrjIgH4fVJXQvCDNGC8A2vasI7C9fBO4QTEMcwkUkGPg9Nxku7NdN4KGy98bF85OSH4E2/OhH0n6vw0hioELgzziBwOWw0Xoiu4tGyuPXGo0tkirGq6ngBHAChGhQE5/J44Xexz8WKwVmRYWVj8Ro3ZKc5yFpvILQl0r5+EF4YYHHe14RcG1KspiBiRvqBLP6UiIaALafZeCc0wJC1ork1ygZiDvHsubj7JnivQoncNdcCy/BOYYYoC0/Tnpf9Ms3Fa1ylk0MpXoxvpnPSLOZdXz7ZDfBCENR0aSguuIavtsRgQgFeB2DaeEZNx3RI482bjpdWncMbX3YIu6G5WJgw8LUxNybaAK9xCT0Rtq9H09FNCBNo+EqwKcJrtGgQJMQ38ZHXzKXEQ6PpeI2Wm8dLoNpsytvl79mb4I0QnfD1MQ6pT+gPpEhYEV7jml1jKMTYp/XyF0bz8RoL5vyyzsEU5QrzQpvgje9lvlR4aMqzIoV4jUvPlBV2WL7aUfnSlRdk6VR4LYiEN8k7EvAynileAYHvihfvRniNqOshvnBvmcvGK8ZrzDzxl0H8oYclb/NowwtVjHdrvRakxEjxWpCIJO1Z9P489RBCwhjHWEJWH0vhO1t6XuijRKFrXUoBXwdKE/A+ksQ6YVwagFl+vmPctTAt3HOX+XC9AQfm8BrzS4slmdkotB74oo+f1W/zSK/o9yWvBUlXYHwueS2I4qUrkHGqmJqM5fRpUmq2YbR8WCwW3atx/ihi3Be2z8XDVWZUk9awGxd+OesXvrkDKjMp2BNNb+KbW9Jtd0dylF/rhyiYTCbOajMtLS0trZ+gY6XWsfmZL2ILIrZuJHJ+8F3EgaLVg5iKujjsKfUbG3Q9Hyht9jd4TaPTlfQAo97+g7wdRkMjK5VrD5byGChQFGcMsk3L4bRw5BTScsX8Kocc+ZAfI6+r47J3UhwcgtFpmcPLXs1SQQ5GolwYs489aTtdLDTi8vdt28fuQKARhHJxNCRhZZv8ELudWa7ps3CGkEqaeCrJMV5xTts6er/N5zlEsp9PPc7caokCvNT/7HBtMWARldT3Z3jFzTbGcnscsuUnuCB1Ao+Nqtrq00g2xpsAzrzodfHGgCWfGPJBuBpQ7QReP2SyBLxhtl3ASzalKLPukuJF2WECXoSx69Foo20L/QPk6cqTd7uB138cpYLoAMU7SzfP4I5O8ZItjwsW4bLY7R7wosusONpGYabyajKfn426bkErTebt7HMyA2TlE39+bby52CDghQxOQZDbYdJPc2kVDsUrhDRBQiQRpseEVhqQVR2XE9eUZtV3Gm/u/g547RT7EPjSeS2GNx8xFAO1JHNJmEcj3xf/LMnsqI24A183XsjmMsm6YGNtvDAtzHcCJJcp3kCC7xY3FnnleGkahw2f1sQ7k/GShJ+k1ZI7HJ9N8srxwlIs1uDWxPsIK+ey0skkH8lW80wxm2Sn8SpubTxeujQHzn+9W5uD5KRc0sWQOTqSv8TVZ4fxxpdr6hNTizxecGbpExTouDc9LrykVnyG3tyUUysnpM2SVHjyxVzq0y7gRQ+XVDd0UETHvemjKTwlXrpIa0g+MK8tfaIFG7ERSOhmNptdPXg0rSbrekmpYBvBir+039gFvGbaSjFtN7JT7KrxQqodcJSdYhEv8eZ85opwHTRxiGn+E+knstSyncCb8agVbybb4+iSZArb5/zCzOXYabyYPt/CVfe9gJd2pCzmQJ9u4VosiUfCizr8zDwZBrM0bOhsUjd7J/CmMRhPxDsdU7VoR1mAN39rQ9fpYeyeKeKVlprAElX2EAzyA6WDj13Ai5Yzqisa/Fp/3Ntaf2BmIt+HeJnwyCdI1WdNHrzstHfYBbybuBWwdmQttyKcOZFDsoJt05FLkMTGFa8cbxASF4FGYdbw2uBhR2E2sg2QXYCXhc1eOV4IH7wkpAMLurLJin4+fdTMFqO8bry033xRQHKRLVdOBEGL0EsFk260u3nVeFvggfnM910LL8z7sO4B+IWjs1QQxaBhs53GWzZbEUxaXbiubVecDFoV0rmG5cqADEYeIfdDRhDxgRjnDuM1zfNUNj+VaSdbOiF9uCD3ZE3Aa3fSwzqUqBgxAyufICVOML+0k4Xo4TlngJcr8bwzfNEZNhlv9rhRcabYztaumAhnHhiLmKXC/Exx2mnAihjSpYDTh4U0EXhaHTiQjiVVxA7FlYSr1GS8mdRpJOdrp5FkfTK0zyT3ZiT6wETgCMLY2MllSPgvw3tRuqCnDQl6b8v4tqsnmW2C10YIuwsxCWpNvHQKyZ/QlcNi4hN4yeAJbozXOO2p3/jRo0/dvd8rsdngnTaRhWPlV5GMyXZOVi6Fz0KLfAqfJx/G8JIP2YhiRnLYwu5c3gF7yVYv6ZAduSLYWhov08XvSqXP7T5+p7Q5euHX8Qpaiaa5xSCTaUvUFG7tgfLR5aCWLMp/yn9IylmS6H13BoVLWacRmCcDkECuSKtVsGJIqf8DCYcyLRVbroUAAAAASUVORK5CYII=" alt="">
+    </header>
+    <main class="container">
+        <h1 class="title">
+            Consulta CEP
+        </h1>
+
+        <!-- 1º ROW -->
+        <div class="row">
+            <div class="inputbox">
+                <input type="text" id="nome" required>
+                <label for="nome">Nome</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="email" required>
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <!-- 2º ROW -->
+        <div class="row">
+            <div class="inputbox">
+                <input type="text" id="cep" required>
+                <label for="cep">CEP</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="rua" required>
+                <label for="rua">Rua</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="numero" required>
+                <label for="numero">Número</label>
+            </div>
+        </div>
+
+        <!-- 3º ROW -->
+        <div class="row">
+            <div class="inputbox">
+                <input type="text" id="bairro" required>
+                <label for="bairro">Bairro</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="cidade" required>
+                <label for="cidade">Cidade</label>
+            </div>
+            <div class="inputbox">
+                <input type="text" id="uf" required>
+                <label for="uf">Estado</label>
+            </div>
+        </div>
+
+        <!-- 4º ROW -->
+        <div class="row">
+            <button>Salvar</button>
+        </div>
+    </main>
+    <footer>
+        IFPR &#169 20252
+    </footer>
+</body>
+</html>
