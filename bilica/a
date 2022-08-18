@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+:root {
+    --cor_escura: #276678;
+    --cor_média: #1687A7;
+    --cor_clara: #F6F5F5;
+    --cor_escura2: #205261;
+    --cor_clara2: #D3E0EA;
+    --branco: #FFFFFF;
+    --degrade: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    
+    margin: 0;
+    background-color: var(--cor_escura2);
+}
+
+body, button, input, select, textarea {
+    font-family: 'Merriweather', serif;
+    color: #FFFFFF;
+}
+
+/* Rectangle 19 */
+
+.degrade  {
+    width: 100%;
+    height: 332.69px;
+    left: 745.49px;
+    top: 293.69px;
+
+    background: linear-gradient(180deg, #205261 0%, #276678 36.98%, #1687A7 70.83%, #205261 100%);
+    
+    background-blend-mode: lighten;
+}
+
+/*Configuração do h1*/
+.container h1 {
+    font-size: 44px;
+    font-family: 'Merriweather', serif;
+    
+    /* degrade */
+
+    background: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-blend-mode: hard-light;
+
+    /* cor escura 2 */
+
+    border: 1px solid #205261;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*Configuração do h2*/
+h2 {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Define a margem e gordura da fonte*/
+h1, h2{
+    margin: 0;
+    font-weight: 400;
+}
+
+/*Configuração das letras no paragrafo*/
+p{
+    color: var(--branco);
+    font-family: 'Roboto Slab', serif;
+}
+
+/*Configurações do botão "Entre em Contato"*/
+button {
+    background: var(--cor_média);
+    border: 0;
+    border-radius: 10px;
+    padding: 8px 10px;;
+    color: var(--cor_clara);
+    font-size: 18px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+header {
+    height: calc(100vh - 65px);
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    width: 50%;
+    height: fit-content;
+    padding: 0 100px;
+} 
+
+/*Para a imagem não aparecer no desktop*/
+header .container img {
+    display: none;
+}
+
+
+.about-me .img-container .line.green{
+    
+    transform: matrix(0.39, -0.91, 0.95, 0.36, 0, 0);
+    color: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+}
+
+.about-me .img-container .line.purple{
+    transform: matrix(0.93, -0.35, 0.39, 0.93, 0, 0);
+    color: var(--cor_média);
+}
+
+/*Configurar o site para outras dimensões (Responsividade para tablet)*/
+@media (max-width: 767px) {
+
+    header .container {
+        width: 100% ;
+    }
+
+    header .container img {
+        display: inline;
+        height: 51px;
+        margin-bottom: 45px;
+    }
+    nav img {
+        display: none;
+        height: 51px;
+    }
+}
+
+/*Configurar o site para outras dimensões (smartphone)*/
+
+@media (max-width: 480px) {
+
+    header .container {
+        padding: 0 40px ;
+    }
+
+    nav {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        top: unset;
+        padding: 0 15px;
+    }
+
+    nav ul a {
+        font-size: 12px;
+    }
+
+}
+
+header .container h1{
+    color: var(--cor_clara2);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 75px;
+    background: var(--cor_escura2);
+    padding: 0 100px;
+    position: sticky;
+    top: 0;
+
+}
+
+nav ul a {
+    font-size: 15px;
+    margin: 0 35px;
+    
+    line-height: 13px;
+
+    /* cor clara 2 */
+
+    color: #D3E0EA;
+
+    /* Cor escura */
+
+    border: 1px solid #276678;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+nav img {
+
+    height: 51px;
+}
+
+nav ul a svg {
+    display: none;
+}
+
+.about-me h1{
+    
+
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 30px;
+    
+    /* degrade */
+    
+    background: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-blend-mode: hard-light;
+    
+    /* cor escura 2 */
+    
+    border: 1px solid #205261;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.about-me {
+    display: flex;
+    padding: 100px;
+}
+
+.about-me .container {
+    width: 50%;
+    padding-right: 50px;
+}
+
+.about-me .img-container {
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.about-me .img-container img {
+    width: 30%;
+    height: 80%;
+}
+/*Pra aparecer a linha em volta da foto*/
+.about-me .img-container .line{
+    width: calc(30% + 50px);
+    height: calc(80% + 50px);
+    border: 1px solid var(--cor_média);
+
+    position: absolute;
+    top: -25px;
+    left: calc(50% - 30%/2 - 25px);
+}
+
+
+
+.Cabecalho-servico h1 {
+        /* Serviços */
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 30px;
+        
+        /* degrade */
+        
+        background: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        background-blend-mode: hard-light;
+
+        text-align: center;
+
+    /* cor escura 2 */
+
+    border: 1px solid #205261;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    
+}
+
+
+.curriculo .container {
+    max-width: 1200px;
+    display: flex;
+    margin: 50px auto;
+}
+
+.curriculo .container .conteudo {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.curriculo .container img {
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+
+.servico h1 {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    align-items: center;
+    display: flex;
+    padding: 100px;
+}
+
+.servicos {
+    text-align: center;
+    margin: 150px 0;
+    padding: 0 100px;
+}
+
+.servicos-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 60px auto 0;
+}
+
+.servicos .servicos-container .retangulo-servico {
+    max-width: 360px;
+    border-radius: 16px;
+    padding: 40px 25px;
+    /* Cor escura */
+    background: #276678;
+    /* cor média */
+    border: 1px solid #1687A7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.servicos .servicos-container .retangulo-servico img {
+    position: relative;
+    margin-bottom: 60px;
+    height: 80px;
+    width: 80px;
+
+
+    top: calc(50% - 20px);
+}
+
+.servicos .servicos-container .retangulo-servico p {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    /* cor clara 2 */
+
+    color: #D3E0EA;
+}
+
+.servicos .servicos-container .retangulo-servico h2 {
+    margin-top: 10%;
+    font-size: 24px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* identical to box height */
+    
+    /* Cor clara */
+    color: #F6F5F5;
+    
+}
+
+
+.curriculo {
+    text-align: center;
+    padding: 0 100px;
+}
+
+.curriculo h1 {
+    font-size: 44px;
+    font-family: 'Merriweather', serif;
+    
+    /* degrade */
+
+    background: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-blend-mode: hard-light;
+
+    /* cor escura 2 */
+
+    border: 1px solid #205261;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.curriculo .container .conteudo .curriculo-text {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 150px auto;
+    margin-bottom: 50px;
+}
+
+.curriculo .curriculo-text {
+    font-size: 16px;
+}
+
+
+.curriculo .container .conteudo .curriculo-text img{
+    position: relative;
+    margin-bottom: 60px;
+    width: 187px;
+    height: 46px;
+
+}
+
+.entre-em-contato img{
+    position: relative;
+    margin-bottom: 60px;
+    width: 160px;
+    height: 32px;
+    top: calc(50% - 20px);
+}
+
+.contato {
+    max-width: 700px;
+    margin: 150px auto 70px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.contato h1 {
+    font-size: 44px;
+    font-family: 'Merriweather', serif;
+    
+    /* degrade */
+
+    background: linear-gradient(180deg, rgba(29, 139, 170, 0.99414) 3.12%, #6DB5CA 45.31%, rgba(235, 251, 255, 0.8125) 99.99%, rgba(22, 135, 167, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-blend-mode: hard-light;
+
+    /* cor escura 2 */
+
+    border: 1px solid #205261;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.contato p {
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.contato button {
+    margin: 40px auto;
+}
+
+.contato .social-media {
+    max-width: 360px;
+    margin: 50px auto 0;
+    justify-content: space-around;
+    display: flex;
+}
+
+.contato .social-media svg {
+    color: var(--cor_clara);
+    height: 40px;
+    width: 50px;
+}
+
+footer p {
+    text-align: center;
+    
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 18px;
+}
