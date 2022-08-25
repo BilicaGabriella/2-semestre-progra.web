@@ -1,72 +1,736 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Consulta CEP</title>
-</head>
-<body>
-    <header>
-        <img src="data:image/png;base64,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" alt="">
-    </header>
-    <main class="container">
-        <h1 class="title">
-            Consulta CEP
-        </h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- 1º ROW -->
-        <div class="row">
-            <div class="inputbox">
-                <input type="text" id="nome" required>
-                <label for="nome">Nome</label>
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Livedoc Universidade &amp; Business Templatee</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="assets/css/theme.css" rel="stylesheet" />
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/gallery/logo.png" width="118" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="#about">Sobre nós</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#departments">Nossos cursos</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#findUs">Profissionais</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#findUs">Ajuda </a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#findUs">Contato</a></li>
+            </ul><a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="#!">Sign In</a>
+          </div>
+        </div>
+      </nav>
+      <section class="py-xxl-10 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/hero-bg.png);background-position:top center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row min-vh-xl-100 min-vh-xxl-25">
+            <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="assets/img/gallery/hero.png" alt="hero-header" /></div>
+            <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+              <h1 class="fw-light font-base fs-6 fs-xxl-7">Hoje<strong> você pode </strong>fazer<br />o seu&nbsp;<strong> futuro.</strong></h1>
+              <p class="fs-1 mb-5">Uma universidade é uma instituição de ensino superior pluridisciplinar e de formação de quadros profissionais de nível superior, de investigação, de extensão e de domínio e 
+                cultivo do saber humano.<br />Aqui na Livedoc Universidade você encontra o melhor ensino do país. </p><a class="btn btn-lg btn-primary rounded-pill" href="#!" role="button">Começar!!</a>
             </div>
-            <div class="inputbox">
-                <input type="text" id="email" required>
-                <label for="email">Email</label>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5" id="departments">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/bg-departments.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Cursos</h1>
             </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0">
+
+        <div class="container">
+          <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/neurology.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/neurology.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Psicologia</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/eye-care.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/eye-care.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Estética</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/cardiac.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/cardiac.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Medicina</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/heart.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/heart.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Pedagogia</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/osteoporosis.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/osteoporosis.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Fisioterapia</p>
+                  </a></div>
+              </div>
+            </div>
+            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+              <div class="d-flex flex-column align-items-center">
+                <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img class="mb-3 deparment-icon" src="assets/img/icons/ent.png" alt="..." /><img class="mb-3 deparment-icon-hover" src="assets/img/icons/ent.svg" alt="..." />
+                    <p class="fs-1 fs-xxl-2 text-center">Fonodiológo</p>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="bg-secondary">
+        <div class="bg-holder" style="background-image:url(assets/img/gallery/bg-eye-care.png);background-position:center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="assets/img/gallery/eye-care.png" alt="..." /></div>
+            <div class="col-md-7 col-xxl-6 text-center text-md-start">
+              <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Escolha sua graduação<br class="d-none d-sm-block" />e vem fazer parte do nosso corpo discente.</h2>
+              <p class="text-light">Seja claro no que você deseja e persevere através dos<br class="d-none d-sm-block" /> estudos. Dessa forma, você vai colher os frutos de todo este tempo investido.<br class="d-none d-sm-block" /></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-0" id="about">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Sobre nós</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-5">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/about-bg.png);background-position:top center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-lg-1 mb-5 mb-lg-0"><img class="fit-cover rounded-circle w-100" src="assets/img/gallery/health-care.png" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start">
+              <h2 class="fw-bold mb-4">A história da <br class="d-none d-sm-block" />nossa universidade</h2>
+              <p>Nossa universidade foi fundada em 2000 pelo professor doutor Fulaninho De Tal<br class="d-none d-sm-block" /> a cada dia procuramos melhorar cada vez mais nossa universidade.  <br class="d-none d-sm-block" />Melhorando nossa infraestrutura, e os cursos superiores. Nosso corpo doscente é formado por professores doutores mais bem capacitados do país.<br class="d-none d-sm-block" /></p>
+              <div class="py-3">
+                <button class="btn btn-lg btn-outline-primary rounded-pill" type="submit"> Leia mais</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-0">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/doctors-us.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Nosso corpo doscente</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-5">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/doctors-bg.png);background-position:top center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row flex-center">
+            <div class="col-xl-10 px-0">
+              <div class="carousel slide" id="carouselExampleDark" data-bs-ride="carousel"><a class="carousel-control-prev carousel-icon z-index-2" href="#carouselExampleDark" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next carousel-icon z-index-2" href="#carouselExampleDark" role="button" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></a>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/anita.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulana</h5>
+                            <p class="mb-0 fs-xxl-1">Psicologia</p>
+                            <p class="text-600 mb-0">Formada nos Estados Unidos</p>
+                            <p class="text-600 mb-4">10 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/jane.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulaninha</h5>
+                            <p class="mb-0 fs-xxl-1">Ortopedista</p>
+                            <p class="text-600 mb-0">Formado na Australia</p>
+                            <p class="text-600 mb-4">12 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulaninho</h5>
+                            <p class="mb-0 fs-xxl-1">Cardiologista</p>
+                            <p class="text-600 mb-0">Formado na Inglaterra</p>
+                            <p class="text-600 mb-4">25 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/anita.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulaninha de Tal</h5>
+                            <p class="mb-0 fs-xxl-1">Esteticista</p>
+                            <p class="text-600 mb-0">Formado na Australia</p>
+                            <p class="text-600 mb-4">12 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/jane.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulana 2</h5>
+                            <p class="mb-0 fs-xxl-1">Ortopedista</p>
+                            <p class="text-600 mb-0">Formado na Inglaterra</p>
+                            <p class="text-600 mb-4">25 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulano 3</h5>
+                            <p class="mb-0 fs-xxl-1">Pedagogia</p>
+                            <p class="text-600 mb-0">Formado na Australia</p>
+                            <p class="text-600 mb-4">16 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/anita.png" width="128" alt="..." />
+                            <h5 class="mt-3">Bertrana</h5>
+                            <p class="mb-0 fs-xxl-1">Pscicóloga</p>
+                            <p class="text-600 mb-0">Formado na Russia</p>
+                            <p class="text-600 mb-4">12 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/jane.png" width="128" alt="..." />
+                            <h5 class="mt-3">Fulana</h5>
+                            <p class="mb-0 fs-xxl-1">Cirurgiã Geral</p>
+                            <p class="text-600 mb-0">Formada na Correia</p>
+                            <p class="text-600 mb-4">25 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-8 mb-md-0">
+                        <div class="card card-span h-100 shadow">
+                          <div class="card-body d-flex flex-column flex-center py-5"><img src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                            <h5 class="mt-3">Bertrano</h5>
+                            <p class="mb-0 fs-xxl-1"><Fieldset>Fonodiológo</Fieldset></p>
+                            <p class="text-600 mb-0">Formado na Irlanda</p>
+                            <p class="text-600 mb-4">12 anos de experiencia</p>
+                            <div class="text-center">
+                              <button class="btn btn-outline-secondary rounded-pill" type="submit">Ver perfil</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Comentários dos Alunos</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-8">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people-bg-1.png);background-position:center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center offset-sm-1">
+            <div class="carousel slide" id="carouselPeople" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Fulano da Silva Sauro</h5>
+                      <p class="fw-normal mb-0">Formado em Medicina</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Melhor faculdade!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i></div>
+                      <p>A tutora é sempre atenciosa, tira todas as dúvidas, ajuda sempre no que pode e não pode. O grupo do whatsapp é bem prestativo também quando temos dúvidas sobre a matéria, tentamos fazer vídeo conferência para estudarmos juntos e nos conhecermos também. 
+                        Dessa forma conhecemos pessoas de diversos lugares, cidades, estados e isso é bom também para conhecermos outras culturas.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Fulano da Silva</h5>
+                      <p class="fw-normal mb-0">Formado em Pscicologia</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Melhor do país!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i></div>
+                      <p>Atendimento, a primeira impressão é a que fica marcada, e eles souberam me atender muito bem na matrícula, até agora vi que não me falta nada eles me atendem rápido pra tirar minhas dúvidas,
+                         recomendo a Livedoc a todos que querem fazer faculdade, estão de parabéns, a melhor do país</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Fulano</h5>
+                      <p class="fw-normal mb-0">Formado em Ortopedia</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Melhor INFRAESTRUTURA!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i></div>
+                      <p>Já realizei diversas formações anteriores de maneira presencial e a distância e o que mais me chamou a atenção na Unifatecie foi a usabilidade da plataforma. O sistema de painel na página inicial do aluno,
+                         traz clareza quanto ao progresso nas disciplinas, bem como, quanto as datas importantes a serem observadas em termos de entrega e realização de avaliações.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="position-relative z-index-2 mt-5">
+                  <ol class="carousel-indicators">
+                    <li class="active" data-bs-target="#carouselPeople" data-bs-slide-to="0"></li>
+                    <li data-bs-target="#carouselPeople" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselPeople" data-bs-slide-to="2"> </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/people.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">Mande suas dúvidas</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-8">
+        <div class="container">
+          <div class="row">
+            <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:bottom right;background-size:auto;">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="assets/img/gallery/appointment.png" alt="..." /></div>
+            <div class="col-lg-6 z-index-2">
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="inputName">Nome</label>
+                  <input class="form-control form-livedoc-control" id="inputName" type="text" placeholder="Name" />
+                </div>
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="inputPhone">Telefone</label>
+                  <input class="form-control form-livedoc-control" id="inputPhone" type="text" placeholder="Phone" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="inputCategory">Categoria</label>
+                  <select class="form-select" id="inputCategory">
+                    <option selected="selected">Category</option>
+                    <option> Tirar dúvidas</option>
+                    <option> Entrar na faculdade</option>
+                    <option> </option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="inputEmail">Email</label>
+                  <input class="form-control form-livedoc-control" id="inputEmail" type="email" placeholder="Email" />
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label visually-hidden" for="validationTextarea">Message</label>
+                  <textarea class="form-control form-livedoc-control" id="validationTextarea" placeholder="Message" style="height: 250px;" required="required"></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary rounded-pill" type="submit">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/blog-post.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">RECENT BLOGPOSTS</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section>
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:top left;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/covid-19.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Nov 21, 2021</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">COVID-19: The Most Up-to-Date Information</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/laboratories.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Lifestyle</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Nov 25, 2021</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Importance of Accreditation for Laboratories</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/nicotine.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Nov 28, 2021</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">The dangers of nicotine are addressed in depth</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 mb-4">
+              <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3" src="assets/img/gallery/treatment.png" alt="news" />
+                <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                  <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
+                  </svg><span class="fs--1 text-900">Nov 30, 2021</span><span class="fs--1"></span>
+                  <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Treatment of patients with diabetes during COVID-19</h5><a class="stretched-link" href="#!">read full article</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-primary">
+        <div class="bg-holder bg-size" style="background-image:url(assets/img/gallery/cta-bg.png);background-position:center right;margin-top:-8.125rem;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h2 class="fw-bold text-light">Get an update every week</h2>
+              <p class="text-soft-primary">Livedoc was created in order to improve the patient experience. <br />Providing world-class tests, and a wide range of other services.</p>
+            </div>
+            <div class="col-lg-6">
+              <h5 class="mb-3 text-soft-primary">SUBSCRIBE TO NEWSLETTER </h5>
+              <form class="row gx-2 gy-2 align-items-center">
+                <div class="col">
+                  <div class="input-group-icon">
+                    <label class="visually-hidden" for="inputEmailCta">Address</label>
+                    <input class="form-control form-livedoc-control form-cta-control text-soft-primary" id="inputEmailCta" type="email" placeholder="Email" />
+                  </div>
+                </div>
+                <div class="d-grid gap-3 col-sm-auto">
+                  <button class="btn btn-lg btn-light rounded-3 px-5 py-3" type="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-0 bg-secondary">
+        <div class="bg-holder opacity-25" style="background-image:url(assets/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row py-8">
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="assets/img/gallery/footer-logo.png" height="51" alt="" /></a>
+              <p class="text-light my-4">The world's most trusted <br />telehealth company.</p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+              <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#!">Eye care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Cardiac are</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Heart care</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Membership</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#!">Free trial</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Silver</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Premium</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> Customer Care</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#!">About Us</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Contact US</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Get Update</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- 2º ROW -->
-        <div class="row">
-            <div class="inputbox">
-                <input type="text" id="cep" required>
-                <label for="cep">CEP</label>
-            </div>
-            <div class="inputbox">
-                <input type="text" id="rua" required>
-                <label for="rua">Rua</label>
-            </div>
-            <div class="inputbox">
-                <input type="text" id="numero" required>
-                <label for="numero">Número</label>
-            </div>
-        </div>
 
-        <!-- 3º ROW -->
-        <div class="row">
-            <div class="inputbox">
-                <input type="text" id="bairro" required>
-                <label for="bairro">Bairro</label>
-            </div>
-            <div class="inputbox">
-                <input type="text" id="cidade" required>
-                <label for="cidade">Cidade</label>
-            </div>
-            <div class="inputbox">
-                <input type="text" id="uf" required>
-                <label for="uf">Estado</label>
-            </div>
-        </div>
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary">
 
-        <!-- 4º ROW -->
-        <div class="row">
-            <button>Salvar</button>
-        </div>
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-4">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; Your Company, 2021</p>
+              </div>
+              <div class="col-12 col-sm-8 col-md-6">
+                <p class="fs--1 my-2 text-center text-md-end text-200"> Made with&nbsp;
+                  <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#F95C19" viewBox="0 0 16 16">
+                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
+                  </svg>&nbsp;by&nbsp;<a class="fw-bold text-info" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+      </section>
     </main>
-    <footer>
-        IFPR &#169 20252
-    </footer>
-</body>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+  </body>
+
 </html>
