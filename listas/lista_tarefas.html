@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Lista de tarefas</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="https://png.pngtree.com/png-vector/20210520/ourlarge/pngtree-list-of-daily-to-do-tasks-png-image_3296470.jpg" alt="tarefas" class="img-fluid">
+            </div>
+            <div class="col-sm-8" id="divQuadro">
+                <h1>Tarefas do Dia (a realizar)</h1>
+                <form>
+                    <p><label for="inTarefa"></label>
+                        <input type="text" class="form-control" id="inTarefa" required autofocus>
+                    </p>
+                    <p>
+                        <input type="submit" value="Adicionar &#10003;" class="btn btn-primary">
+                        <input type="button" value="Selecionar &#8645;" class="btn btn-info" id="btSelecionar">
+                        <input type="button" value="Retirar Selecionado &#10007;" class="btn btn-danger" id="btRetirar">
+                        <input type="button" value="Gravar &#9673;" class="btn btn-success" id="btGravar">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="lista_tarefas.js"></script>
+</body>
+</html>
+
